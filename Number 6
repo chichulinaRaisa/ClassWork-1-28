@@ -1,0 +1,28 @@
+public class MathUtilArray {
+
+    public static String getEvenNumbersUpTo(byte number) {
+        if (number < 0) {
+            return ""; // Если число отрицательное, возвращаем пустую строку
+        }
+        
+        if (number == 0) {
+            return "1"; // Если число равно 0, возвращаем "1"
+        }
+
+        StringBuilder evenNumbers = new StringBuilder();
+
+        // Перебираем числа от 1 до number и добавляем чётные в строку
+        for (int i = 2; i <= number; i += 2) {
+            evenNumbers.append(i);
+        }
+
+        return evenNumbers.toString(); // Возвращаем строку с чётными числами
+    }
+
+    private MathUtilArray() {
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Если передать число 5, то метод должен вернуть строку 1245 - " + MathUtilArray.getEvenNumbersUpTo((byte) 5));
+      
+}
