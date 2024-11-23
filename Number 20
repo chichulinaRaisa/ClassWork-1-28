@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+public class ArrayUtilsFindIntersection { 
+
+	public static int[] findIntersection(int[] rightArray, int[] leftArray) { 
+		int[] temp = new int[Math.min(rightArray.length, leftArray.length)];
+		int index = 0;
+
+		for (int i = 0; i < rightArray.length; i++) {
+			for (int j = 0; j < leftArray.length; j++) {
+				if (rightArray[i] == leftArray[j]) {
+					temp[index++] = rightArray[i];
+					break;
+				}
+			}
+		}
+
+		return Arrays.copyOf(temp, index); 
+	} 
+
+	private ArrayUtilsFindIntersection() { 
+
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println( 
+			"При вводе массивов [1,4,7,3,8] и [9,12,7,4] метод должен вернуть массив [4,7] - '" 
+			+ Arrays.toString(ArrayUtilsFindIntersection.findIntersection(new int[]{1, 4, 7, 3, 8}, new int[]{9, 12, 7, 4})) 
+			+ "'" 
+		); 
+	} 
+}
