@@ -1,0 +1,29 @@
+import java.util.Arrays;
+
+public class ArrayUtilsShiftElements { 
+	public static int[] shiftElements(int[] inputArray) { 
+		if (inputArray == null || inputArray.length <= 1) {
+			return inputArray;
+		}
+
+		int firstElement = inputArray[0];
+		for (int i = 1; i < inputArray.length; i++) {
+			inputArray[i - 1] = inputArray[i];
+		}
+		inputArray[inputArray.length - 1] = firstElement;
+
+		return inputArray; 
+	} 
+
+	private ArrayUtilsShiftElements() { 
+
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println( 
+			"При вводе массива [1, 2, 3, 4, 5], метод должен вернуть массив [2, 3, 4, 5, 1] - '" 
+			+ Arrays.toString(ArrayUtilsShiftElements.shiftElements(new int[]{1, 2, 3, 4, 5})) 
+			+ "'" 
+		); 
+	} 
+}
