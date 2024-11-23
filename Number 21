@@ -1,0 +1,41 @@
+import java.util.Arrays;
+import java.util.Random;
+
+public class ArrayUtilsTwoDigitNumbers { 
+	public static int[] fillArrayByTwoDigitNumbers(int[] inputArray) { 
+		Random random = new Random();
+		int[] tempArray = new int[inputArray.length];
+		int index = 0;
+
+		while (index < inputArray.length) {
+			int randomNumber = 10 + random.nextInt(90); // Генерация случайного двузначного числа
+
+			// Проверяем, если число уже есть в массиве, пропускаем его
+			boolean isDuplicate = false;
+			for (int i = 0; i < index; i++) {
+				if (tempArray[i] == randomNumber) {
+					isDuplicate = true;
+					break;
+				}
+			}
+
+			if (!isDuplicate) {
+				tempArray[index++] = randomNumber;
+			}
+		}
+
+		return tempArray; 
+	} 
+
+	private ArrayUtilsTwoDigitNumbers() { 
+
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println( 
+			"При вводе массива длиной 5, метод должен вернуть массив случайных двузначных чисел - '" 
+			+ Arrays.toString(ArrayUtilsTwoDigitNumbers.fillArrayByTwoDigitNumbers(new int[5])) 
+			+"'" 
+		); 
+	} 
+}
