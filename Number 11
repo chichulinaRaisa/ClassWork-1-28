@@ -1,0 +1,26 @@
+public class StringUtilsCountWord { 
+	public static int countWord(String input, String word) { 
+		if (input == null || word == null || word.isEmpty()) {
+			return 0;
+		}
+
+		String[] words = input.toLowerCase().split("\\s+");
+		int count = 0;
+
+		for (String currentWord : words) {
+			if (currentWord.equals(word.toLowerCase())) {
+				count++;
+			}
+		}
+
+		return count; 
+	} 
+
+	private StringUtilsCountWord() { 
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println("При вводе строки \"Test string for test\" и искомом слове \"test\" метод должен вернуть 2 - " 
+			+ StringUtilsCountWord.countWord("Test string for test", "test")); 
+	} 
+}
