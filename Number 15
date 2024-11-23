@@ -1,0 +1,20 @@
+public class ConditionalUtilsFlatNumber { 
+	public static boolean isDescendingNumber(int inputNumber) { 
+		if (inputNumber < 100 || inputNumber > 999) {
+			return false;
+		}
+
+		int digit1 = inputNumber / 100;
+		int digit2 = (inputNumber / 10) % 10;
+		int digit3 = inputNumber % 10;
+
+		return digit1 == digit2 && digit2 == digit3;
+	} 
+
+	private ConditionalUtilsFlatNumber() { 
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println("При вводе числа 777 метод должен вернуть true - " + ConditionalUtilsFlatNumber.isDescendingNumber(777)); 
+	} 
+}
