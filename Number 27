@@ -1,0 +1,23 @@
+public class TypesTaskSumN { 
+	public static long sumN(int input) { 
+		if (input < 1) {
+			return 0;
+		}
+		return (long) input * (input + 1) / 2; // Формула для суммы чисел от 1 до n
+	} 
+
+	private TypesTaskSumN() { 
+
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println( 
+			"Ввод меньше 1 должен вернуть 0: " + 
+			sumN(-1) 
+		); 
+		System.out.println( 
+			"Сумма от 1 до 7: " + 
+			sumN(7) 
+		); 
+	} 
+}
