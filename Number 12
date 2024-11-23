@@ -1,0 +1,28 @@
+public class ConditionalUtilsCountInner { 
+
+	public static int countInnerNumber(int base, int checkNumber) { 
+		if (base < 1000 || base > 9999 || checkNumber < 10 || checkNumber > 99) {
+			return 0;
+		}
+
+		String baseStr = String.valueOf(base);
+		String checkStr = String.valueOf(checkNumber);
+		int count = 0;
+
+		for (int i = 0; i <= baseStr.length() - checkStr.length(); i++) {
+			if (baseStr.substring(i, i + checkStr.length()).equals(checkStr)) {
+				count++;
+			}
+		}
+
+		return count; 
+	} 
+
+	private ConditionalUtilsCountInner() { 
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println("При вводе чисел 6522 и 22 метод должен вернуть 1 - " 
+			+ ConditionalUtilsCountInner.countInnerNumber(6522, 22)); 
+	} 
+}
