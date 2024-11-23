@@ -1,0 +1,36 @@
+import java.math.BigInteger;
+
+public class FibonacciUtils {
+    public static String getFibonacciSum(byte limit) {
+        if (limit < 0) {
+            return "0"; // Если передано отрицательное число, возвращаем "0"
+        }
+
+        BigInteger sum = BigInteger.ZERO;
+        BigInteger prev = BigInteger.ZERO;
+        BigInteger current = BigInteger.ONE;
+
+        for (byte i = 0; i <= limit; i++) {
+            if (i == 0) {
+                sum = sum.add(prev);
+            } else if (i == 1) {
+                sum = sum.add(current);
+            } else {
+                BigInteger next = prev.add(current);
+                sum = sum.add(next);
+                prev = current;
+                current = next;
+            }
+        }
+
+        return sum.toString(); // Возвращаем сумму чисел Фибоначчи как строку
+    }
+
+    private FibonacciUtils() {
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Сумма чисел фибоначчи до 5 должна равняться 7 - " + FibonacciUtils.getFibonacciSum((byte) 5));
+      
+    }
+}
