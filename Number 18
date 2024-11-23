@@ -1,0 +1,39 @@
+import java.util.Arrays;
+
+public class ArrayUtilsRemoveElement { 
+	public static int[] removeElement(int[] nums, int val) { 
+		int count = 0;
+
+		// Считаем количество элементов, не равных val
+		for (int num : nums) {
+			if (num != val) {
+				count++;
+			}
+		}
+
+		// Создаем новый массив
+		int[] result = new int[count];
+		int index = 0;
+
+		// Заполняем новый массив значениями, не равными val
+		for (int num : nums) {
+			if (num != val) {
+				result[index++] = num;
+			}
+		}
+
+		return result; 
+	} 
+
+	private ArrayUtilsRemoveElement() { 
+
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println( 
+			"При вводе массива [1, 1, 2, 3, 1] и числа 1, метод должен вернуть [2, 3] - '" 
+			+ Arrays.toString(ArrayUtilsRemoveElement.removeElement(new int[]{1, 1, 2, 3, 1}, 1)) 
+			+ "'" 
+		); 
+	} 
+}
