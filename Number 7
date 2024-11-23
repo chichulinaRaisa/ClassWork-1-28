@@ -1,0 +1,35 @@
+public class StringUtilsCamel {
+    public static String toCamelCase(String input) {
+        if (input == null || input.isEmpty()) {
+            return ""; // Если строка пуста или равна null, возвращаем пустую строку
+        }
+
+        StringBuilder result = new StringBuilder();
+        boolean toUpperCase = false; // Флаг, который указывает, нужно ли делать букву заглавной
+
+        for (char c : input.toCharArray()) {
+            // Пропускаем символы, которые не являются буквами (буквы и пробелы)
+            if (Character.isLetter(c)) {
+                if (toUpperCase) {
+                    result.append(Character.toUpperCase(c)); // Делаем символ заглавным
+                    toUpperCase = false; // Сбрасываем флаг
+                } else {
+                    result.append(Character.toLowerCase(c)); // Делаем символ строчным
+                }
+            } else if (c == ' ') {
+                toUpperCase = true; // Если пробел, следующая буква будет заглавной
+            }
+        }
+
+        return result.toString(); // Возвращаем строку в camelCase
+    }
+
+    private StringUtilsCamel() {
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Строка \"my camel * case string 1\" должна преобразоваться в myCamelCaseString - "
+                + StringUtilsCamel.toCamelCase("my camel * case string 1"));
+        
+    }
+}
