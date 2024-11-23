@@ -1,0 +1,38 @@
+public class MathUtilAvg {
+    public static int getPrimeNumbersSum(byte lowEdge, byte highEdge) {
+        if (lowEdge < 0 || highEdge < 0 || lowEdge >= highEdge) {
+            return 0; // Если одно из чисел отрицательное или первое больше второго, возвращаем 0
+        }
+
+        int sum = 0;
+        int count = 0;
+
+        // Ищем чётные числа между lowEdge и highEdge
+        for (int i = lowEdge + 1; i < highEdge; i++) {
+            if (i % 2 == 0) { // Чётное число
+                sum += i;
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            return 0; // Если нет чётных чисел, возвращаем 0
+        }
+
+        return sum / count; // Возвращаем среднее значение, округленное в меньшую сторону
+    }
+
+    private MathUtilAvg() {
+    }
+
+    public static void main(String[] args) {
+        System.out.println("avg четных чисел у ряда с 1 до 10 должен равняться 6 - "
+                + MathUtilAvg.getPrimeNumbersSum((byte) 1, (byte) 10));
+        System.out.println("avg четных чисел у ряда с 0 до 20 должен равняться 10 - "
+                + MathUtilAvg.getPrimeNumbersSum((byte) 0, (byte) 20));
+        System.out.println("avg четных чисел у ряда с -5 до 5 должен равняться 0 - "
+                + MathUtilAvg.getPrimeNumbersSum((byte) -5, (byte) 5));
+        System.out.println("avg четных чисел у ряда с 10 до 5 должен равняться 0 - "
+                + MathUtilAvg.getPrimeNumbersSum((byte) 10, (byte) 5));
+    }
+}
