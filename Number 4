@@ -1,0 +1,30 @@
+public class MathUtilFactorial {
+    public static long getFactorial(byte number) {
+        if (number < 0) {
+            return 0; // Если число отрицательное, возвращаем 0
+        }
+
+        long factorial = 1;
+
+        // Процесс вычисления факториала
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+
+            // Проверяем на переполнение (если результат больше максимального значения long)
+            if (factorial < 0) {
+                return 0; // Возвращаем 0 при переполнении
+            }
+        }
+
+        return factorial; // Возвращаем факториал
+    }
+
+    private MathUtilFactorial() {
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Факториал от 5 должен равняться 120 - " + MathUtilFactorial.getFactorial((byte) 5));
+        System.out.println("Факториал от 0 должен равняться 1 - " + MathUtilFactorial.getFactorial((byte) 0));
+        System.out.println("Факториал от -1 должен равняться 0 - " + MathUtilFactorial.getFactorial((byte) -1));
+    }
+}
