@@ -1,0 +1,30 @@
+public class BracketUtil {
+    public static boolean isCorrectBrackets(String input, char bracketOpenSymbol, char bracketCloseSymbol) {
+        int balance = 0; // Счётчик для баланса открывающих и закрывающих скобок
+        
+        for (char c : input.toCharArray()) {
+            if (c == bracketOpenSymbol) {
+                balance++; // Увеличиваем баланс при встрече открывающей скобки
+            } else if (c == bracketCloseSymbol) {
+                balance--; // Уменьшаем баланс при встрече закрывающей скобки
+                if (balance < 0) {
+                    return false; // Если баланс отрицательный, значит закрывающая скобка стоит раньше открывающей
+                }
+            }
+        }
+        
+        // Если баланс равен нулю, то все скобки правильно открылись и закрылись
+        return balance == 0;
+    }
+
+    private BracketUtil() {
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Ввод равного поличества открывающих и закрывающих скобок - "
+            + BracketUtil.isCorrectBrackets("{{}}", '{', '}'));
+        System.out.println("Ввод неравного поличества открывающих и закрывающих скобок - "
+            + BracketUtil.isCorrectBrackets("{{}}}", '{', '}'));
+        System.out.println("Некорректная строка - " + BracketUtil.isCorrectBrackets("())", '(', ')'));
+    }
+}
