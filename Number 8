@@ -1,0 +1,36 @@
+import java.text.Normalizer;
+
+public class StringUtilsPalindrome {
+    public static boolean isPalindrome(String input) {
+        if (input == null || input.isEmpty()) {
+            return false;
+        }
+
+        input = Normalizer.normalize(input, Normalizer.Form.NFD)
+                          .replaceAll("[^\\p{L}]", "")
+                          .toLowerCase();
+
+        if (input.isEmpty()) {
+            return false;
+        }
+
+        int left = 0, right = input.length() - 1;
+        while (left < right) {
+            if (input.charAt(left) != input.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+
+    private StringUtilsPalindrome() {
+    }
+
+    public static void main(String[] args) {
+        System.out.println("При вводе строки \"шалаш\" метод должен вернуть true - " + StringUtilsPalindrome.isPalindrome("шалаш"));
+        
+    }
+}
