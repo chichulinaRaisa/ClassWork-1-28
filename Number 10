@@ -1,0 +1,16 @@
+public class StringUtilsSliceWord { 
+	public static String getSlice(String input, int leftEdge, int rightEdge) { 
+		if (input == null || leftEdge < 0 || rightEdge > input.length() || leftEdge >= rightEdge) {
+			return "";
+		}
+		return input.substring(leftEdge, rightEdge); 
+	} 
+
+	private StringUtilsSliceWord() { 
+	} 
+
+	public static void main(String[] args) { 
+		System.out.println("При вводе строки \"Test\" с индексами 1 и 4 метод должен вернуть \"est\" - " 
+			+ "\"" + StringUtilsSliceWord.getSlice("Test", 1, 4) +"\""); 
+	} 
+}
