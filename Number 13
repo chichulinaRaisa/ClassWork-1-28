@@ -1,0 +1,23 @@
+public class ConditionalUtilsTwiceEven { 
+	public static boolean isDoublePrime(int inputNumber) { 
+		if (inputNumber < 100 || inputNumber > 999) {
+			return false;
+		}
+
+		int digit1 = inputNumber / 100;
+		int digit2 = (inputNumber / 10) % 10;
+		int digit3 = inputNumber % 10;
+
+		int sum = digit1 + digit2 + digit3;
+		int product = digit1 * digit2 * digit3;
+
+		return sum % 2 == 0 && product % 2 == 0;
+	} 
+
+	private ConditionalUtilsTwiceEven() { 
+	} 
+	
+	public static void main(String[] args) { 
+		System.out.println("При вводе числа 222 метод должен вернуть true - " + ConditionalUtilsTwiceEven.isDoublePrime(222)); 
+	} 
+}
