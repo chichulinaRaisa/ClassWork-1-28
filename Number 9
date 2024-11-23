@@ -1,0 +1,26 @@
+public class StringUtilsBiggestWord {
+	public static String getLargest(String input) {
+		if (input == null || input.isEmpty()) {
+			return "";
+		}
+
+		String[] words = input.split("\\s+");
+		String largestWord = "";
+		
+		for (String word : words) {
+			if (word.length() >= largestWord.length()) {
+				largestWord = word;
+			}
+		}
+
+		return largestWord;
+	}
+
+	private StringUtilsBiggestWord() {
+	}
+
+	public static void main(String[] args) {
+		System.out.println("При вводе строки \"самое большое слово\" метод должен вернуть \"большое\" - " 
+			+ StringUtilsBiggestWord.getLargest("самое большое слово"));
+	}
+}
